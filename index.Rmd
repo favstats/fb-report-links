@@ -17,7 +17,48 @@ Enter your URL here:
 <input type="text" id="input_url" size="100">
 <button onclick="generateLinks()">Generate Links</button>
 
+<div id="instructions" style="display: none;">
+
+<i>This worked!</i> Please follow the following instructions:
+
+  <ol>
+    <li>Click the “click here” links in the table below. You should now be in the ad manager report view.</li>
+    <br>
+    <li>Click on the 'export' button at the top right (see image below table).</li>
+    <br>
+    <li><b>IMPORTANT:</b> name each file according to the names in the table.</li>
+    <br>
+    <li>Checkmark: export as .csv file.</li>
+    <br>
+    <li>Make sure the 'include summary row' option is checked.</li>
+    <br>
+    <li>Click export.</li>
+  </ol>
+  
+Repeat this 10 times for all Links from 1-10 in your generated table. The entire job takes about 15 minutes.
+
+Once you downloaded all the files and named them correctly, **please upload them to the secure storage of the University of Amsterdam**. You received a personalized link and password via e-mail. 
+
+Ensure that you are uploading <u><b>10 files</b></u>.
+
+*Note: please always follow the links and do not generate the reports by selecting the breakdown variables yourself because it will lack important information.*
+</div>
+
+
 <div id="links_table"></div>
+
+
+
+<div id="instructions2" style="display: none;">
+<center>
+
+![](reporttt.png)
+*Description: this is how your website should look like once you clicked on any of the links and on the export button in the upper right.*
+
+</center>
+</div>
+
+<div id="firstinstructions">
 
 This page generates *personalized* links for your report manager. 
 
@@ -28,10 +69,12 @@ The URL should include the ad account ID and business ID. If it doesn't try clic
 
 For example, the URL might look like this: <i>https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=238077227&business_id=1794354014105845</i>
 
-
 The important parts are: "act=XXXXXXX" and "business_id=XXXXXX"
 
 *Note: when you enter the URL everything is processed locally in your browser, no data is stored.*
+
+
+</div>
 
 <style>
 #links_table table {
@@ -88,5 +131,10 @@ function generateLinks() {
   table_html += '</table>';
 
   document.getElementById('links_table').innerHTML = table_html;
+  document.getElementById('instructions').style.display = 'block';
+  document.getElementById('instructions2').style.display = 'block';
+  document.getElementById('firstinstructions').style.display = 'none';
+  
+
 }
 </script>
