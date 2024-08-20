@@ -158,8 +158,8 @@ function generateLinks() {
   var act_id = getParam(base_url, 'act');
   var business_id = getParam(base_url, 'business_id');
 
-  if (!act_id || !business_id) {
-    alert('Invalid URL. Please ensure it contains act and business_id parameters.');
+  if (!act_id) {
+    alert('Invalid URL. Please ensure it contains the act parameter.');
     return;
   }
 
@@ -178,7 +178,11 @@ function generateLinks() {
 
   var table_html = '<table border="1"><tr><th>Link</th><th>Name</th></tr>';
   links.forEach(function(link, index) {
-    table_html += '<tr><td><a href="' + link.url + '&act=' + act_id + '&business_id=' + business_id + '" target="_blank">click here</a></td><td>' + link.name + '</td></tr>';
+    var full_url = link.url + '&act=' + act_id;
+    if (business_id) {
+      full_url += '&business_id=' + business_id;
+    }
+    table_html += '<tr><td><a href="' + full_url + '" target="_blank">click here</a></td><td>' + link.name + '</td></tr>';
   });
   table_html += '</table>';
 
@@ -186,8 +190,6 @@ function generateLinks() {
   document.getElementById('instructions').style.display = 'block';
   document.getElementById('instructions2').style.display = 'block';
   document.getElementById('firstinstructions').style.display = 'none';
-  
-
 }
 </script>
     </section>
